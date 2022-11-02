@@ -113,7 +113,7 @@ variable "kms_key_deletion_window" {
 variable "allowed_inbound_cidrs_lb" {
   type        = list(string)
   description = "List of CIDR blocks to permit inbound traffic from to load balancer"
-  default     = null
+  default     = ["0.0.0.0/0"]
 }
 
 variable "allowed_inbound_cidrs_ssh" {

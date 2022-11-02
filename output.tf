@@ -36,5 +36,5 @@ output "vault_sg_id" {
 } 
 
 output "subdomain" {
-  value = module.route53.subdomain
+  value = var.subdomain == "" ? "" : module.route53[0].subdomain
 }

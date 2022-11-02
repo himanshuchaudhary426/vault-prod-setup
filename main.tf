@@ -72,6 +72,7 @@ module "vm-instances" {
 }
 
 module "route53" {
+  count   = var.subdomain != "" && var.route53_zone_id != null ? 1 : 0
   source = "./route53"
 
   elb_dns_name = module.loadbalancer.vault_lb_dns_name
