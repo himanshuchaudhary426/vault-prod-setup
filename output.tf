@@ -34,3 +34,7 @@ output "vault_sg_id" {
   description = "Security group ID of Vault cluster"
   value       = module.vm-instances.vault_sg_id
 } 
+
+output "subdomain" {
+  value = module.route53.subdomain
+}

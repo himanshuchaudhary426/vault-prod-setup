@@ -35,7 +35,7 @@ variable "kms_key_arn" {
 variable "secrets_manager_arn" {
   type        = string
   description = "Secrets manager ARN where TLS cert info is stored"
-  default     = "arn:aws:secretsmanager:ap-south-1:473794989039:secret:vault-8R7t1k"
+  default     = ""
 }
 
 variable "vault_version" {
@@ -83,13 +83,13 @@ variable "lb_deregistration_delay" {
 variable "lb_certificate_arn" {
   type        = string
   description = "ARN of TLS certificate imported into ACM for use with LB listener"
-  default     = "arn:aws:acm:ap-south-1:473794989039:certificate/34179535-0c45-4381-9083-03a38c8ad9c4"
+  default     = ""
 }
 
 variable "leader_tls_servername" {
   type        = string
   description = "One of the shared DNS SAN used to create the certs use for mTLS"
-  default     = "vault.chaudharyhimanshu.tech"
+  default     = ""
 }
 
 variable "instance_type" {
@@ -130,4 +130,14 @@ variable "additional_lb_target_groups"{
 variable "protocol" {
   default = "HTTPS"
   type    = string
+}
+
+variable "route53_zone_id" {
+  type = string
+  default = ""
+}
+
+variable "subdomain" {
+  type = string
+  default = ""
 }

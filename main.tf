@@ -70,3 +70,12 @@ module "vm-instances" {
   private-subnet-2            = module.vpc.private-subnet-2
   private-subnet-3            = module.vpc.private-subnet-3
 }
+
+module "route53" {
+  source = "./route53"
+
+  elb_dns_name = module.loadbalancer.vault_lb_dns_name
+  elb_zone_id  = module.loadbalancer.vault_lb_zone_id
+  route53_zone_id = var.route53_zone_id
+  subdomain    = var.subdomain
+}
